@@ -1,0 +1,21 @@
+/*================= GLOBAL ==================*/
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+
+/*================= HEADER ==================*/
+#user-stats {
+    flex-direction: row;
+    justify-content: space-between;
+}
+.vertical-center {
+    min-height: 50%;  /* Fallback for browsers do NOT support vh unit */
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/*----------------- Navigation --------------*/
