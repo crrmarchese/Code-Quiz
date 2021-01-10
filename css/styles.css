@@ -3,6 +3,9 @@ body {
     font-family: 'Raleway', sans-serif;
 }
 
+p, ol {
+    font-size: large;
+}
 
 /*================= HEADER ==================*/
 #user-stats {
@@ -19,7 +22,5 @@ body {
 }
 
 /*================= MAIN ==================*/
-#quiz-question {
-    font-size: large;
-}
+
 /*----------------- Navigation --------------*/
