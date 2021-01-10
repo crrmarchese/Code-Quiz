@@ -1,6 +1,7 @@
 // DOM Elements
-const quizSection = document.querySelector("#start-quiz");
+const quizIntro = document.querySelector("#start-quiz-about");
 const startButton = document.querySelector("#start-button");
+const quizSection = document.querySelector("#quiz-questions-all");
 
 // Attach event listener to start button to call startGame function on click
 // startQuiz.addEventListener("click", function(event) {
@@ -14,23 +15,28 @@ const startButton = document.querySelector("#start-button");
 // The init function is called when the page loads 
 function init() {
   startQuizAnimation();
+
 }
 
-// Starting page for quiz
+// Fade in starting page for quiz
 function startQuizAnimation() {
-    quizSection.classList.add("animate__animated", "animate__fadeIn");
+    quizIntro.classList.add("animate__animated", "animate__fadeIn");
 }
 
 // Animation to hide quiz starting section
 function startGame() {
-    //Attach event listener to start button to call startGame function on click
-     startButton.addEventListener("click", function() {
-        // quizSection.classList.remove("animate__fadeIn");
-        // quizSection.classList.add("animate__fadeOutDown");
-        console.log("The button has been clicked");
+    // Hide intro to quiz
+    quizIntro.classList.remove("animate__fadeIn");
+    quizIntro.classList.add("animate__fadeOut");  
+    quizIntro.remove();
+    quizSection.classList.remove("d-none");
+    quizSection.classList.add("animate__animated", "animate__fadeInUp");
+
     
-    });
 }
+
+//Attach event listener to start button to call startGame function on click
+startButton.addEventListener("click", startGame);
 
 // Calls init() so that it fires when page opened
 init();

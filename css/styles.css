@@ -18,4 +18,10 @@ body {
     justify-content: center;
 }
 
+/*================= MAIN ==================*/
+#quiz-question {
+    font-size: large;
+}
+
+
 /*----------------- Navigation --------------*/
