@@ -2,6 +2,10 @@
 const quizIntro = document.querySelector("#start-quiz-about");
 const startButton = document.querySelector("#start-button");
 const quizSection = document.querySelector("#quiz-questions-all");
+const quizQuestion = document.querySelector("#quiz-question");
+const answerChoices = document.querySelector("#answer-choices");
+const timerCounter = document.querySelector(".timer-count");
+const answerResult = document.querySelector("#user-answer-result");
 
 // Attach event listener to start button to call startGame function on click
 // startQuiz.addEventListener("click", function(event) {
