@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coding Quiz Challenge</title>
+    <title>Timed Coding Quiz Challenge with Multiple Choice Questions</title>
     <!-- Google fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
@@ -12,6 +12,11 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.0.0/mdb.min.css"
 	rel="stylesheet"
 	/>
+	<!-- Animate -->
+	<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
     <!-- Custom Styles -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -24,24 +29,31 @@
 		  </div>
 		</header>
 		<main class="mt-4">
-			<div class="row">
-				<div class="col-md-8 col-sm-10 col-lg-6 mx-auto vertical-center">
-					<h1>Coding Quiz Challenge</h1>
-					<p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your scoreTime by ten seconds!</p>
-					<button id="start-quiz" class="btn btn-lg btn-primary fw-bold">
-						Start Quiz
-					</button>
+			<section id="start-quiz">
+				<div class="row">
+					<div class="col-md-8 col-sm-10 col-lg-6 mx-auto vertical-center">
+						<h1>Coding Quiz Challenge</h1>
+						<p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your scoreTime by ten seconds!</p>
+						<button id="start-button" type="button" class="btn btn-lg btn-primary fw-bold">
+							Start Quiz
+						</button>
+					</div>
 				</div>
-			</div>
+			</section>
+			
 			
 		</main>	
 		
 
 	</div>
+	<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	<!-- MDB -->
 	<script
   type="text/javascript"
   src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.0.0/mdb.min.js"
 ></script>
+<!-- Custom JS -->
+<script src="js/script.js"></script>
 </body>
 </html>
