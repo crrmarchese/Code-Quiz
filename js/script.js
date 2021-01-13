@@ -116,18 +116,25 @@ function getQuestion() {
         // Check answer when button clicked, move to next question
         btnChoices.addEventListener("click", btnAnswer);
     });
-
-    // Horizontal rule <hr>
-    let hrRule = document.createElement("hr");
-    quizForm.appendChild(hrRule);
-    hrRule.setAttribute("class", "text-primary");
     
 }
 
-function btnAnswer(createAnswerEl) {
+function btnAnswer() {
+    // Create div to hold <hr> and answer choice
+    let divSibling = document.querySelector("div.button-group-choices")
+    let divElAnswer = document.createElement('div');
+    quizForm.insertBefore(divElAnswer, divSibling.nextSibling);
+    divElAnswer.setAttribute("class", "answer-container");
+    
+    // Horizontal rule <hr>
+    let hrRule = document.createElement("hr");
+    divElAnswer.appendChild(hrRule);
+    hrRule.setAttribute("class", "text-primary");
     let answerResult = document.createElement("p");
-    quizForm.appendChild(answerResult);
+    divElAnswer.appendChild(answerResult);
     answerResult.setAttribute("class", "user-answer-result");
+
+    // Check if answer is correct
     let answerClicked = (this.value);
     if(answerClicked === quizQuestionsAll[indexCounter].correctAnswer) {
         answerResult.textContent = "Correct!"
