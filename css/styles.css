@@ -22,5 +22,8 @@ p, ol {
 }
 
 /*================= MAIN ==================*/
-
+.button-group-choices button {
+    display: block;
+    margin-bottom: 1.25rem;
+}
 /*----------------- Navigation --------------*/
