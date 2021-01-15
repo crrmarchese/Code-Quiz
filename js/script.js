@@ -95,8 +95,9 @@ function getQuestion() {
     // Create Quiz Container
     let quizContainer = document.createElement("div");
     divTextStartEl.appendChild(quizContainer);
-    quizContainer.setAttribute("id","quiz-container");
-    quizContainer.setAttribute("class","animate__animated", "animate__fadeIn")
+    quizContainer.setAttribute("class","quiz-container");
+    quizContainer.setAttribute("class","animate__animated", "animate__fadeIn");
+
     // Create Paragraph <p> for questions
     let currentQuestion = quizQuestionsAll[indexCounter];
     let paraQuestion = document.createElement("p");
