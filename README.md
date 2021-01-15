@@ -10,4 +10,4 @@ Create a timed coding quiz with multiple-choice questions featuring dynamically 
 
 ## URL
 
-https://crrmarchese.github.io/Bootstrap-Responsive-Portfolio/
+https://crrmarchese.github.io/Code-Quiz/
