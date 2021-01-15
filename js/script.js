@@ -6,19 +6,22 @@ const quizQuestionEl = document.querySelector("#quiz-question");
 const quizQuestionNumberEl = document.querySelector(".quiz-question-number");
 // const quizQuestionNumberEl = document.createElement("span");
 // const answerChoicesEl = document.querySelector("#answer-choices");
-// const timerCounterEl = document.querySelector("#timer-count");
+const timerCounterEl = document.querySelector("#timer-count");
 // const answerResultEl = document.querySelector("#user-answer-result");
-const quizForm = document.querySelector("#quiz-form");
+// const quizContainer = document.querySelector("#quiz-container");
+const divTextStartEl = document.querySelector(".text-start"); //Use this for HTML reset
+const finalScoreEl = document.querySelector("#final-score");
 
-// const body = document.body;
+//Timer variables
+let timer
+let timerCount; //seconds on timer
 
-// const startingSeconds = 75;
 
 //Start at first question (index) Keep this!
 let indexCounter = 0;
 
 // Quiz Questions
-const quizQuestionsAll = [
+let quizQuestionsAll = [
     {
         questionNumber: 1,
         question: "What is a block of JavaScript code that can be executed when \"called\" for?",
@@ -77,19 +80,28 @@ function startGame() {
     quizSectionEl.classList.add("animate__animated", "animate__fadeInUp");
 
     //Set time on counter
-    // timerCount = 30;
+     timerCount = 75;
+
+     // Start Timer
+    startTimer();
 
     //Load Quiz Questions
     getQuestion()
+    
  
 }
 
 function getQuestion() {
+    // Create Quiz Container
+    let quizContainer = document.createElement("div");
+    divTextStartEl.appendChild(quizContainer);
+    quizContainer.setAttribute("id","quiz-container");
+    quizContainer.setAttribute("class","animate__animated", "animate__fadeIn")
     // Create Paragraph <p> for questions
     let currentQuestion = quizQuestionsAll[indexCounter];
     let paraQuestion = document.createElement("p");
     paraQuestion.textContent = currentQuestion.question;
-    quizForm.appendChild(paraQuestion);
+    quizContainer.appendChild(paraQuestion);
     paraQuestion.setAttribute("id","quiz-question-" + currentQuestion.questionNumber);
     paraQuestion.setAttribute("class","fw-bold");
 
@@ -101,14 +113,14 @@ function getQuestion() {
 
     // Create <div> for buttons
     let divElBtn = document.createElement("div");
-    quizForm.appendChild(divElBtn);
+    quizContainer.appendChild(divElBtn);
     divElBtn.setAttribute("class", "button-group-choices");
 
     // Loop through answers currently only the first one is set
     currentQuestion.choices.forEach(function(choice){
         let btnChoices = document.createElement("button");
         divElBtn.appendChild(btnChoices);
-        btnChoices.setAttribute("class", "btn btn-lg btn-primary");
+        btnChoices.setAttribute("class", "btn btn-lg btn-primary ripple-surface");
         btnChoices.setAttribute("type", "button");
         btnChoices.setAttribute("value", choice);
         btnChoices.textContent = choice;
@@ -123,31 +135,51 @@ function btnAnswer() {
     // Create div to hold <hr> and answer choice
     let divSibling = document.querySelector("div.button-group-choices")
     let divElAnswer = document.createElement('div');
-    quizForm.insertBefore(divElAnswer, divSibling.nextSibling);
+    divSibling.after(divElAnswer);
     divElAnswer.setAttribute("class", "answer-container");
     
-    // Horizontal rule <hr>
+    // Create Horizontal rule <hr>
     let hrRule = document.createElement("hr");
     divElAnswer.appendChild(hrRule);
     hrRule.setAttribute("class", "text-primary");
-    let answerResult = document.createElement("p");
-    divElAnswer.appendChild(answerResult);
-    answerResult.setAttribute("class", "user-answer-result");
+
+    // Create <p> with answer
+    let answerResultEl = document.createElement("p");
+    divElAnswer.appendChild(answerResultEl);
+    answerResultEl.setAttribute("class", "user-answer-result");
 
     // Check if answer is correct
     let answerClicked = (this.value);
     if(answerClicked === quizQuestionsAll[indexCounter].correctAnswer) {
-        answerResult.textContent = "Correct!"
+        answerResultEl.textContent = "Correct!";
     } else {
-        answerResult.textContent = "Wrong!"
+        answerResultEl.textContent = "Wrong!";
+        timerCount = timerCount - 10; // Wrong answer deduct 10 seconds
     }
+    
     //write logic to show if answer is correct
     //write logic to go to the next question indexCounter ++
     //clear page with html remove
+    indexCounter ++;
+    getQuestion();
 }
+
 
 //Attach event listener to start button to call startGame function on click
 startButton.addEventListener("click", startGame);
 
 // Calls init() so that it fires when page opened
 init();
+
+//Timer
+function startTimer() {
+    // Sets timer
+    timer = setInterval(function() {
+    timerCounterEl.textContent = timerCount;
+      timerCount--; 
+      if (timerCount === 0) {
+        // Clears interval
+        clearInterval(timer);
+      }
+    }, 1000);
+}
