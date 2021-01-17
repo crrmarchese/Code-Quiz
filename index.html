@@ -35,7 +35,7 @@
 				<div class="row">
 					<div class="col-md-8 col-sm-10 col-lg-6 mx-auto vertical-center">
 						<h1>Coding Quiz Challenge</h1>
-						<p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score time by ten seconds!</p>
+						<p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your scoreTime by ten seconds!</p>
 						<button id="start-button" type="button" class="btn btn-lg btn-primary fw-bold">
 							Start Quiz
 						</button>
@@ -43,25 +43,59 @@
 				</div>
 			</section>
 			<section id="quiz-questions-all" class="d-none">
-
 				<div class="row">
-					<div class="col-md-8 col-sm-10 col-lg-6 mx-auto vertical-center">
+					<div class="col-md-8 col-sm-10 col-lg-7 mx-auto vertical-center">
 						<div class="text-start">
-							
+							<div class="quiz-container">
+								<!-- Questions -->
+								
+									<span class="quiz-question-number me-2 fw-bold"></span>
+									<p class="fw-bold quiz-question"></p>
+									<div class="button-group-choices">
+											<button class="btn btn-lg btn-primary ripple-surface" type="button"></button>
+											<button class="btn btn-lg btn-primary ripple-surface" type="button"></button>
+											<button class="btn btn-lg btn-primary ripple-surface" type="button"></button>
+											<button class="btn btn-lg btn-primary ripple-surface" type="button"></button>
+									</div>
+									<div class="answer-container ">
+										<hr class="text-primary">
+										<p class="user-answer-result"></p>
+									</div>
+								
+								
+							</div>
 							
 						</div>
 					</div>
 				</div>
 
 			</section>
+
 			<section id="quiz-score-container" class="d-none">
 				<div class="row">
 					<div class="col-md-8 col-sm-10 col-lg-6 mx-auto vertical-center">
 						<h1>Quiz Score</h1>
 						<p>Your final score is <span id="final-score"></span></p>
+						<div class="input-group mb-3">
+							<span class="input-group-text">Enter initials</span>
+							<input type="text" class="form-control" placeholder="" aria-label="initials" aria-describedby="your-initials">
+							<button class="btn btn-lg btn-primary ripple-surface" type="button" id="your-initials">Submit</button>
+						  </div>
 					</div>
 				</div>
 			</section>
+
+			<section id="high-score-container" class="d-none">
+				<div class="row">
+					<div class="col-md-8 col-sm-10 col-lg-6 mx-auto vertical-center">
+						<h1>Highscores</h1>
+						<p id="display-high-scores">Highscores goes here</p>
+						<button class="btn btn-lg btn-primary ripple-surface" type="button">Go Back</button>
+						<button class="btn btn-lg btn-primary ripple-surface" type="button">Clear Highscores</button>
+					</div>
+				</div>
+			</section>
+			
 		</main>	
 		
 
