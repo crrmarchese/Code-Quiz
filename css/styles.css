@@ -28,11 +28,6 @@ p, ol {
     margin-bottom: 1.25rem;
 }
 
-.button-group-choices button {
-    display: block;
-    margin-bottom: 1.25rem;
-}
-
 #quiz-score-container input.form-control {
     min-height: calc(2.08rem + 12px);
     height: calc(2.08rem + 12px);
