@@ -12,6 +12,7 @@ p, ol {
     flex-direction: row;
     justify-content: space-between;
 }
+
 .vertical-center {
     min-height: 50%;  /* Fallback for browsers do NOT support vh unit */
     min-height: 50vh;
@@ -26,4 +27,13 @@ p, ol {
     display: block;
     margin-bottom: 1.25rem;
 }
-/*----------------- Navigation --------------*/
+
+.button-group-choices button {
+    display: block;
+    margin-bottom: 1.25rem;
+}
+
+#quiz-score-container input.form-control {
+    min-height: calc(2.08rem + 12px);
+    height: calc(2.08rem + 12px);
+}
